@@ -7,9 +7,62 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ServicePage" FontFamily="Century Gothic">
+    
+
 
     <Grid>
-        <ListView Name="ServiceListView" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left">
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <TextBox Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="300" Height="35" FontSize="15"></TextBox>
+
+                <TextBlock Text="     "></TextBlock>
+
+                <ComboBox Name="ComboSortSearch" SelectionChanged="ComboSortSearch_SelectionChanged" FontSize="15" Width="270" HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
+                    <TextBlock>наименование по возрастанию</TextBlock>
+                    <TextBlock>наименование по убыванию</TextBlock>
+                    <TextBlock>скидка по возрастанию</TextBlock>
+                    <TextBlock>скидка по убыванию</TextBlock>
+                    <TextBlock>приоритет по возрастанию</TextBlock>
+                    <TextBlock>приоритет по убыванию</TextBlock>
+                </ComboBox>
+
+                <TextBlock Text="     "></TextBlock>
+
+                <ComboBox Name="ComboTypeSearch" SelectionChanged="ComboTypeSearch_SelectionChanged" FontSize="15" Width="150" HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
+                    <TextBlock>Все типы</TextBlock>
+                    <TextBlock>ЗАО</TextBlock>
+                    <TextBlock>МКК</TextBlock>
+                    <TextBlock>МФО</TextBlock>
+                    <TextBlock>ОАО</TextBlock>
+                    <TextBlock>ООО</TextBlock>
+                    <TextBlock>ПАО</TextBlock>
+                </ComboBox>
+
+            </StackPanel>
+
+            
+           
+            <StackPanel Orientation="Horizontal" Margin="5">
+
+            </StackPanel>
+
+            
+            <StackPanel Orientation="Horizontal" Margin="5">
+                
+            </StackPanel>
+        </WrapPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="400" Margin="5">
+            
+        </StackPanel>
+
+
+        <ListView Name="ServiceListView" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -24,9 +77,9 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <Image Width="100" Grid.Column="0" Stretch="UniformToFill" HorizontalAlignment="Center">
+                        <Image Width="100" Grid.Column="0" Grid.RowSpan="4" Stretch="UniformToFill" HorizontalAlignment="Center">
                             <Image.Source>
-                                <Binding Path="MainImagePath">
+                                <Binding Path="Logo">
                                     <Binding.TargetNullValue>
                                         <ImageSource>
                                             Resources/Глазки-save.png
@@ -35,12 +88,14 @@
                                 </Binding>
                             </Image.Source>
                         </Image>
-
-                        <TextBlock Text="{Binding Title}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20" TextWrapping="Wrap"></TextBlock>
-                        <TextBlock Text="{Binding Email}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
-                        <TextBlock Text="{Binding Phone}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20"></TextBlock>
-                        <TextBlock Text="{Binding Address}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="16"></TextBlock>
-
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
+                            <TextBlock Text="{Binding AgentTypeString}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="left" FontSize="20"></TextBlock>
+                            <TextBlock Text=" | " Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" FontSize="20" ></TextBlock>
+                            <TextBlock Text="{Binding Title}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="20" ></TextBlock>
+                        </StackPanel>
+                       
+                        <TextBlock Text="{Binding Phone}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20"></TextBlock>
+                        <TextBlock Text="{Binding Priority, StringFormat=Приоритетность: {0}}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="16"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

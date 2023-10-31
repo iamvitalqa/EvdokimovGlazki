@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EvdokimovGlazki"
         mc:Ignorable="d"
-        Title="Евдокимов Глазки" Height="450" Width="800" FontFamily="Century Gothic" Icon="Resources/Глазки-save.ico">
+        Title="Глазки-Save" Height="450" Width="800" FontFamily="Century Gothic" Icon="Resources/Глазки-save.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -13,7 +13,7 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Image Source="/Resources/Глазки-save.png" HorizontalAlignment="Left"></Image>
-        <TextBlock Text="Глазки" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="Список агентов" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
         <Button Content="Назад" Name="BtnBack" HorizontalAlignment="Right"
                 Click="BtnBack_Click"></Button>
