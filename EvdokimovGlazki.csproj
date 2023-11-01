@@ -189,6 +189,7 @@
     <Resource Include="Resources\Глазки-save.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\picture.png" />
     <Resource Include="agents\agent_1.png" />
     <Resource Include="agents\agent_10.png" />
     <Resource Include="agents\agent_100.png" />
@@ -319,6 +320,7 @@
     <Resource Include="agents\agent_97.png" />
     <Resource Include="agents\agent_98.png" />
     <Resource Include="agents\agent_99.png" />
+    <Resource Include="agents\picture.png" />
     <Content Include="EvdokimovGlazki.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EvdokimovGlazki.Context.cs</LastGenOutput>
