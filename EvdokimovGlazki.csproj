@@ -69,63 +69,66 @@
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Agent.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AgentPriorityHistory.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AgentType.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="BoolToVisibilityConverter.cs" />
-    <Compile Include="EvdokimovGlazki.Context.cs">
+    <Compile Include="EvdokimovModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EvdokimovGlazki.Context.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="EvdokimovGlazki.cs">
+    <Compile Include="EvdokimovModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EvdokimovGlazki.Designer.cs">
+    <Compile Include="EvdokimovModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EvdokimovGlazki.edmx</DependentUpon>
+      <DependentUpon>EvdokimovModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Material.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MaterialCountHistory.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MaterialType.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductCostHistory.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductMaterial.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductSale.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductType.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ServicePage.xaml.cs">
       <DependentUpon>ServicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shop.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Supplier.cs">
-      <DependentUpon>EvdokimovGlazki.tt</DependentUpon>
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>EvdokimovModel.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
@@ -166,12 +169,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="EvdokimovGlazki.edmx">
+    <EntityDeploy Include="EvdokimovModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EvdokimovGlazki.Designer.cs</LastGenOutput>
+      <LastGenOutput>EvdokimovModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EvdokimovGlazki.edmx.diagram">
-      <DependentUpon>EvdokimovGlazki.edmx</DependentUpon>
+    <None Include="EvdokimovModel.edmx.diagram">
+      <DependentUpon>EvdokimovModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -321,19 +324,21 @@
     <Resource Include="agents\agent_98.png" />
     <Resource Include="agents\agent_99.png" />
     <Resource Include="agents\picture.png" />
-    <Content Include="EvdokimovGlazki.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EvdokimovGlazki.Context.cs</LastGenOutput>
-      <DependentUpon>EvdokimovGlazki.edmx</DependentUpon>
-    </Content>
-    <Content Include="EvdokimovGlazki.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EvdokimovGlazki.edmx</DependentUpon>
-      <LastGenOutput>EvdokimovGlazki.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EvdokimovModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EvdokimovModel.edmx</DependentUpon>
+      <LastGenOutput>EvdokimovModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EvdokimovModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EvdokimovModel.edmx</DependentUpon>
+      <LastGenOutput>EvdokimovModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

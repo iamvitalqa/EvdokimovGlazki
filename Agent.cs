@@ -42,13 +42,14 @@ namespace EvdokimovGlazki
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shop> Shop { get; set; }
 
-        public string AgentTypeString
+        public  string AgentTypeString
         {
             get
             {
                 return AgentType.Title;
             }
         }
+
+
     }
 }
-

@@ -25,6 +25,7 @@ namespace EvdokimovGlazki
             return _context;
         }
 
+
         public Evdokimov_glazkiEntities()
             : base("name=Evdokimov_glazkiEntities")
         {
@@ -48,5 +49,6 @@ namespace EvdokimovGlazki
         public virtual DbSet<ProductType> ProductType { get; set; }
         public virtual DbSet<Shop> Shop { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

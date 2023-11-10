@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dd2f0328a4ff41488ac8f3c8710d00d7" Name="Diagram1">
+      <Diagram DiagramId="7751f6b48f9b403caa475ae1e7e59412" Name="Diagram1">
         <EntityTypeShape EntityType="Evdokimov_glazkiModel.Agent" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Evdokimov_glazkiModel.AgentPriorityHistory" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Evdokimov_glazkiModel.AgentType" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
@@ -18,6 +18,7 @@
         <EntityTypeShape EntityType="Evdokimov_glazkiModel.ProductType" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Evdokimov_glazkiModel.Shop" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Evdokimov_glazkiModel.Supplier" Width="1.5" PointX="5.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Evdokimov_glazkiModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="Evdokimov_glazkiModel.FK_Agent_AgentType" ManuallyRouted="false" />
         <AssociationConnector Association="Evdokimov_glazkiModel.FK_AgentPriorityHistory_Agent" ManuallyRouted="false" />
         <AssociationConnector Association="Evdokimov_glazkiModel.FK_ProductSale_Agent" ManuallyRouted="false" />
