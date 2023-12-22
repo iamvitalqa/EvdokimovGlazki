@@ -13,21 +13,21 @@ namespace EvdokimovGlazki
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Evdokimov_glazkiEntities : DbContext
+    public partial class Evdokimov_glazkiEntities1 : DbContext
     {
 
-        private static Evdokimov_glazkiEntities _context;
+        private static Evdokimov_glazkiEntities1 _context;
 
-        public static Evdokimov_glazkiEntities GetContext()
+        public static Evdokimov_glazkiEntities1 GetContext()
         {
             if (_context == null)
-                _context = new Evdokimov_glazkiEntities();
+                _context = new Evdokimov_glazkiEntities1();
             return _context;
         }
 
 
-        public Evdokimov_glazkiEntities()
-            : base("name=Evdokimov_glazkiEntities")
+        public Evdokimov_glazkiEntities1()
+            : base("name=Evdokimov_glazkiEntities1")
         {
         }
     

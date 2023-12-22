@@ -58,7 +58,7 @@ namespace EvdokimovGlazki
                 errors.AppendLine("Укажите тип агента");
             else
             {
-                AgentType id = Evdokimov_glazkiEntities.GetContext().AgentType.ToList().Where(p => ComboType.Text == p.Title).ToList()[0];
+                AgentType id = Evdokimov_glazkiEntities1.GetContext().AgentType.ToList().Where(p => ComboType.Text == p.Title).ToList()[0];
                 currentAgent.AgentTypeID = ComboType.SelectedIndex + 1;
             }
             if (string.IsNullOrWhiteSpace(currentAgent.Priority.ToString()))
@@ -88,11 +88,11 @@ namespace EvdokimovGlazki
 
             if (currentAgent.ID == 0)
             {
-                Evdokimov_glazkiEntities.GetContext().Agent.Add(currentAgent);
+                Evdokimov_glazkiEntities1.GetContext().Agent.Add(currentAgent);
             }
             try
             {
-                Evdokimov_glazkiEntities.GetContext().SaveChanges();
+                Evdokimov_glazkiEntities1.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена");
                 Manager.MainFrame.GoBack();
             }
@@ -108,7 +108,7 @@ namespace EvdokimovGlazki
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
             var currentAgent = (sender as Button).DataContext as Agent;
-            var currentAgent1 = Evdokimov_glazkiEntities.GetContext().ProductSale.ToList();
+            var currentAgent1 = Evdokimov_glazkiEntities1.GetContext().ProductSale.ToList();
             currentAgent1 = currentAgent1.Where(p => p.AgentID == currentAgent.ID).ToList();
             if (currentAgent1.Count != 0)
                 MessageBox.Show("Невозможно выполнить удаление, т.к. существуют записи на эту услугу");
@@ -118,8 +118,8 @@ namespace EvdokimovGlazki
                 {
                     try
                     {
-                        Evdokimov_glazkiEntities.GetContext().Agent.Remove(currentAgent);
-                        Evdokimov_glazkiEntities.GetContext().SaveChanges();
+                        Evdokimov_glazkiEntities1.GetContext().Agent.Remove(currentAgent);
+                        Evdokimov_glazkiEntities1.GetContext().SaveChanges();
                     }
                     catch (Exception ex)
                     {
@@ -127,6 +127,11 @@ namespace EvdokimovGlazki
                     }
                 }
             }
+        }
+
+        private void SalesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new SalesPage((sender as Button).DataContext as Agent));
         }
     }
 }

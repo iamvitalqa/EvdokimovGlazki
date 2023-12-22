@@ -92,6 +92,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Horizontal" >
+            <Button Name="SalesButton" Content="История реализации продукции" Click="SalesButton_Click" Width="340" ></Button>
             <Button Content="Сохранить" Name="SaveBtn" Click="SaveBtn_Click" Margin="5"></Button>
             <Button Content="Удалить" Name="DeleteBtn" Click="DeleteBtn_Click" Margin="5"
                     Opacity="{Binding ID}"></Button>

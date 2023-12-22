@@ -22,5 +22,14 @@ namespace EvdokimovGlazki
     
         public virtual Agent Agent { get; set; }
         public virtual Product Product { get; set; }
+
+        public string ProductTitle
+        {
+            get
+            {
+                return Product.Title;
+            }
+        }
+
     }
 }

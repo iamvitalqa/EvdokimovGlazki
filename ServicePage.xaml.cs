@@ -30,8 +30,8 @@ namespace EvdokimovGlazki
         public ServicePage()
         {
             InitializeComponent();
-            var currentServices = Evdokimov_glazkiEntities.GetContext().Agent.ToList();
-            ServiceListView.ItemsSource = currentServices;
+            var currentServices = Evdokimov_glazkiEntities1.GetContext().Agent.ToList();
+            ServiceListView.ItemsSource = currentServices; 
             ComboSortSearch.SelectedIndex = 0;
             ComboTypeSearch.SelectedIndex = 0;
             UpdateServices();
@@ -39,7 +39,7 @@ namespace EvdokimovGlazki
 
         private void UpdateServices()
         {
-            var currentServices = Evdokimov_glazkiEntities.GetContext().Agent.ToList();
+            var currentServices = Evdokimov_glazkiEntities1.GetContext().Agent.ToList();
             currentServices = currentServices.Where(p => (p.Title.ToLower().Contains(TBoxSearch.Text.ToLower()) || p.Email.ToLower().Contains(TBoxSearch.Text.ToLower()) || p.Phone.Replace("+7", "8").Replace("(", "").Replace(") ","").Replace("+7","7").Replace(" ","").Replace("-","").Contains(TBoxSearch.Text.Replace("+7","8").Replace("(", "").Replace(") ", "").Replace(" ", "").Replace("-", "")))).ToList();
 
             if (ComboSortSearch.SelectedIndex == 0)
@@ -47,9 +47,9 @@ namespace EvdokimovGlazki
             if (ComboSortSearch.SelectedIndex == 1)
                 currentServices = currentServices.OrderByDescending(p => p.Title).ToList();
             if (ComboSortSearch.SelectedIndex == 2)
-                currentServices = currentServices.OrderBy(p => p.Title).ToList();
+                currentServices = currentServices.OrderBy(p => p.SaleProduct).ToList();
             if (ComboSortSearch.SelectedIndex == 3)
-                currentServices = currentServices.OrderByDescending(p => p.Title).ToList();
+                currentServices = currentServices.OrderByDescending(p => p.SaleProduct).ToList();
             if (ComboSortSearch.SelectedIndex == 4)
                 currentServices = currentServices.OrderBy(p => p.Priority).ToList();
             if (ComboSortSearch.SelectedIndex == 5)
@@ -210,9 +210,57 @@ namespace EvdokimovGlazki
         {
             if (Visibility == Visibility.Visible)
             {
-                Evdokimov_glazkiEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                ServiceListView.ItemsSource = Evdokimov_glazkiEntities.GetContext().Agent.ToList();
+                Evdokimov_glazkiEntities1.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                ServiceListView.ItemsSource = Evdokimov_glazkiEntities1.GetContext().Agent.ToList();
             }
+        }
+
+        private void ServiceListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ServiceListView.SelectedItems.Count > 1)
+            {
+                chngpriority.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                chngpriority.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void chngpriority_Click(object sender, RoutedEventArgs e)
+        {
+
+            int max = 0;
+            foreach (Agent agent in ServiceListView.SelectedItems)
+            {
+                if(agent.Priority >= max)
+                {
+                    max = agent.Priority;
+                }
+            }
+
+            prioritycng Window = new prioritycng(max);
+            Window.ShowDialog();
+            if (string.IsNullOrEmpty(Window.textpriority.Text))
+            {
+                return;
+            }
+            foreach (Agent AgentLV in ServiceListView.SelectedItems)
+            {
+                AgentLV.Priority = Convert.ToInt32(Window.textpriority.Text);
+            }
+            try
+            {
+                Evdokimov_glazkiEntities1.GetContext().SaveChanges();
+                MessageBox.Show("Информация обновлена");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+
+            }
+            UpdateServices();
         }
     }
 }
